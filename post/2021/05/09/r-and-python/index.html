@@ -76,6 +76,11 @@
               
 
 
+<div class="figure">
+<img src="../../../../../post/2021-05-09-r-and-python_files/Python%20and%20R.png" style="width:80.0%;height:80.0%" alt="" />
+<p class="caption">Python and R generic</p>
+</div>
+<p>Here’s just some code I took from Worksheet 21:</p>
 <pre class="r"><code>library(reticulate)
 py_config()</code></pre>
 <pre><code>## python:         /stor/home/mgb2576/.local/share/r-miniconda/envs/r-reticulate/bin/python
@@ -100,6 +105,38 @@ plt.scatter(x,y)</code></pre>
 <pre class="r"><code>library(ggplot2)
 ggplot()+geom_point(aes(py$x,py$y))</code></pre>
 <p><img src="../../../../../post/2021-05-09-r-and-python_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Here’s an actual conversation between Python and R I devised (I’m not very good with graphs):</p>
+<pre class="python"><code>a = &quot;Greetings R, how are you?&quot;
+b = &quot;I am fine this lovely day! Say, where are you off to?&quot;
+c = &quot;Oh dear! Monique, you say? How strange, I am also on my way to meet with her as well! And she asked ME to help her with her project...&quot;
+d = &quot;How rude! I&#39;ll have you know, Monique said I was a vital part for her project! What do you bring to the table?&quot;
+e = &quot;Backbone you say? Well don&#39;t be fooled, you are just TEMPORARY! One day, Monique shall replace you with more functional and sophisticated code, such as I. It&#39;s probably why she invited us both!&quot;</code></pre>
+<pre class="r"><code>a &lt;-&quot;Hello Python, I&#39;m doing swell. And you?&quot;
+b &lt;-&quot;Well you see, a student by the name of Monique has enlisted me to help her with her project!&quot;
+c &lt;- &quot;Perposterous! Surely you must be mistaken, for it is I who will be helping Monique. There&#39;s no need for you.&quot;
+d &lt;- &quot;HA! Don&#39;t make me laugh; vital? I daresay you need not come becasue you are but a speck amongst her code. In contrast, I am the very back bone of her project!&quot;
+e &lt;- &quot;DON&#39;T be ridiculous! Monque, replace me?? Absurd! We&#39;ll have to hear what she has to say!&quot;</code></pre>
+<pre class="python"><code>a</code></pre>
+<pre><code>## &#39;Greetings R, how are you?&#39;</code></pre>
+<pre class="python"><code>r.a</code></pre>
+<pre><code>## &quot;Hello Python, I&#39;m doing swell. And you?&quot;</code></pre>
+<pre class="python"><code>b</code></pre>
+<pre><code>## &#39;I am fine this lovely day! Say, where are you off to?&#39;</code></pre>
+<pre class="python"><code>r.b</code></pre>
+<pre><code>## &#39;Well you see, a student by the name of Monique has enlisted me to help her with her project!&#39;</code></pre>
+<pre class="python"><code>c</code></pre>
+<pre><code>## &#39;Oh dear! Monique, you say? How strange, I am also on my way to meet with her as well! And she asked ME to help her with her project...&#39;</code></pre>
+<pre class="python"><code>r.c</code></pre>
+<pre><code>## &quot;Perposterous! Surely you must be mistaken, for it is I who will be helping Monique. There&#39;s no need for you.&quot;</code></pre>
+<pre class="python"><code>d</code></pre>
+<pre><code>## &quot;How rude! I&#39;ll have you know, Monique said I was a vital part for her project! What do you bring to the table?&quot;</code></pre>
+<pre class="python"><code>r.d</code></pre>
+<pre><code>## &quot;HA! Don&#39;t make me laugh; vital? I daresay you need not come becasue you are but a speck amongst her code. In contrast, I am the very back bone of her project!&quot;</code></pre>
+<pre class="python"><code>e</code></pre>
+<pre><code>## &quot;Backbone you say? Well don&#39;t be fooled, you are just TEMPORARY! One day, Monique shall replace you with more functional and sophisticated code, such as I. It&#39;s probably why she invited us both!&quot;</code></pre>
+<pre class="python"><code>r.e</code></pre>
+<pre><code>## &quot;DON&#39;T be ridiculous! Monque, replace me?? Absurd! We&#39;ll have to hear what she has to say!&quot;</code></pre>
+<p>NGL, as long as I finish this project fine, I don’t really care haha</p>
 
             
         <hr>         <div class="related-posts">
