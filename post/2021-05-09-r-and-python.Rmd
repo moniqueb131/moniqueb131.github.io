@@ -12,7 +12,6 @@ tags:
 description: 'How R and Python "talk" to each other'
 ---
 
-![](/post/2021-05-09-r-and-python_files/Python and R.png){width=80% height=80%}
 
 
 ```{R}
