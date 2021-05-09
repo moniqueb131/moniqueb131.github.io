@@ -44,6 +44,8 @@ ggplot()+geom_point(aes(py$x,py$y))
 ```
 
 
+![Speech](/post/2021-05-09-r-and-python_files/speech.png){width=80% height=80%}
+
 Here's an actual conversation between Python and R I devised (I'm not very good with graphs):
 
 ```{python}
