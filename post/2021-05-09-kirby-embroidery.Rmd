@@ -1,0 +1,18 @@
+---
+title: Kirby Embroidery
+author: Monique Bactad
+date: '2021-05-09'
+slug: kirby-embroidery
+categories:
+  - blog
+tags:
+  - embroidery
+description: 'A quarantine knife Kirby embroidery'
+---
+
+During the quarantine summer, I started learning embroidery! The first peice I did was a knife Kirby saying "Have yowo heawd about teh LOWOD?"
+It was my first free-hand embroidery, I had to look up specific stitches! Here's a link to a [YouTube video](https://youtu.be/FAyFfMb-ZS4) I referenced.
+
+
+
+![Kirby embroidery](/post/2021-05-09-kirby-embroidery_files/kirby.jpeg)

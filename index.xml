@@ -6,28 +6,25 @@
     <description>Recent content on Monique Bactad</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 08 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test Post</title>
-      <link>/post/2021/05/08/test-post/</link>
-      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
+      <title>Kirby Embroidery</title>
+      <link>/post/2021/05/09/kirby-embroidery/</link>
+      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021/05/08/test-post/</guid>
-      <description> Boop the snoot
-Link to project 1
-Link to google
-#wheee </description>
+      <guid>/post/2021/05/09/kirby-embroidery/</guid>
+      <description> During the quarantine summer, I started learning embroidery! The first peice I did was a knife Kirby saying “Have yowo heawd about teh LOWOD?” It was my first free-hand embroidery, I had to look up specific stitches! Here’s a link to a YouTube video I referenced.
+Kirby embroidery
+ </description>
     </item>
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>R and Python</title>
+      <link>/post/2021/05/09/r-and-python/</link>
+      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2015/07/23/hello-r-markdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+      <guid>/post/2021/05/09/r-and-python/</guid>
+      <description> library(reticulate) py_config() ## python: /stor/home/mgb2576/.local/share/r-miniconda/envs/r-reticulate/bin/python ## libpython: /stor/home/mgb2576/.local/share/r-miniconda/envs/r-reticulate/lib/libpython3.6m.so ## pythonhome: /stor/home/mgb2576/.local/share/r-miniconda/envs/r-reticulate:/stor/home/mgb2576/.local/share/r-miniconda/envs/r-reticulate ## version: 3.6.13 | packaged by conda-forge | (default, Feb 19 2021, 05:36:01) [GCC 9.3.0] ## numpy: /stor/home/mgb2576/.local/share/r-miniconda/envs/r-reticulate/lib/python3.6/site-packages/numpy ## numpy_version: 1.19.5 py_install(&amp;quot;pandas&amp;quot;) py_install(&amp;quot;matplotlib&amp;quot;) matplotlib &amp;lt;- import(&amp;quot;matplotlib&amp;quot;) matplotlib$use(&amp;quot;Agg&amp;quot;, force = TRUE) import numpy as np import matplotlib.pyplot as plt import pandas x=np.random.normal(0,1,50) y=np.random.normal(0,1,50) plt.scatter(x,y) library(ggplot2) ggplot()+geom_point(aes(py$x,py$y)) </description>
     </item>
     
     <item>

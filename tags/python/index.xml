@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Monique Bactad</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Monique Bactad</description>
+    <title>Python on Monique Bactad</title>
+    <link>/tags/python/</link>
+    <description>Recent content in Python on Monique Bactad</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 09 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Kirby Embroidery</title>
-      <link>/post/2021/05/09/kirby-embroidery/</link>
-      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2021/05/09/kirby-embroidery/</guid>
-      <description> During the quarantine summer, I started learning embroidery! The first peice I did was a knife Kirby saying “Have yowo heawd about teh LOWOD?” It was my first free-hand embroidery, I had to look up specific stitches! Here’s a link to a YouTube video I referenced.
-Kirby embroidery
- </description>
-    </item>
-    
+    <lastBuildDate>Sun, 09 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R and Python</title>
       <link>/post/2021/05/09/r-and-python/</link>
