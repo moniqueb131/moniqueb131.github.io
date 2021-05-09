@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Monique Bactad" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>Project 1: Exploratory Data Analysis (SDS348)</title>
+    <meta name="generator" content="Hugo 0.83.1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../../"><i class="fa fa-home"></i></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="../../post/">BLOG</a></li>
+        
+        <li><a href="../../projects/">PROJECTS</a></li>
+        
+        <li><a href="../../resume/">RESUME</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="../../project/project1/">Project 1: Exploratory Data Analysis (SDS348)</a></strong>
+          </h3>
+        </div>
+ 
+<div class="blog-title">
+          <h4>
+         January 1, 0001 
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+<script src="../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="../../rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="../../rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, eval = TRUE, fig.align = &quot;center&quot;, warning = F, message = F,
+tidy=TRUE, tidy.opts=list(width.cutoff=60), R.options=list(max.print=100))</code></pre>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>For my project, I initially wanted to see what kind of effect COVID-19, particularly the lockdowns, had affected people’s everyday lives and activities. The datasets I chose were posted on www.statista.com and they’re all based in Norway. The COVID cases, new and cumulative, were both published by Connor Stewart, a researcher who focuses on health and pharmaceuticals in Europe, and the data was sourced from Folkehelseinstituttet (FHI), the Institute of Public Health in Norway. Both COVID cases datasets collected daily numbers from February 21, 2020 when the first COVID case was recorded, until March 24, 2021 when the data collection concluded nad subsequently published on March 26, 2021. The datasets for the daily active users (DAU) on different apps were published by J. Clement, a research lead focusing on gaming and the internet. They cooporated with Airnow Data, a mobile app analytics, optimization and market research platform. The 3 datasets collected DAU from the Twitch app, a livestreaming platform aimed for gaming, the popular battle royale game, Fortnite, and the sandbox game, Minecraft, from March 1 to June 1, 2020, and the data was posted on www.statista.com on January 29, 2021.</p>
+<p>All 5 of these datasets contained dates and the number of cases, or DAU, for that day. They were very simple and tidy, which is why I had to collect more than 2 datasets, making sure they were from Norway with the appropriate dates. I was very fortunate to have found these sets of data. I can see if there’s a correlation between people being occupied with mobile apps and the rat at which COVID cases were growing. Would it be that there would be less new cases if people were at home spending time watching live streams or playing games? I think it would be very interesting to see and test those correlations, especially since in my expereince, I definately increased internet usage and gaming during the lock down.</p>
+</div>
+<div id="links-to-dataset-sources" class="section level2">
+<h2>Links to Dataset Sources</h2>
+<p>Cumulative number of coronavirus (COVID-19) cases in Norway since February 2020: <a href="https://www.statista.com/statistics/1102249/cumulative-coronavirus-cases-in-norway/" class="uri">https://www.statista.com/statistics/1102249/cumulative-coronavirus-cases-in-norway/</a></p>
+<p>Number of new coronavirus (COVID-19) cases in Norway since February 2020, by date of report: <a href="https://www.statista.com/statistics/1102246/coronavirus-cases-development-in-norway/" class="uri">https://www.statista.com/statistics/1102246/coronavirus-cases-development-in-norway/</a></p>
+<p>Number of daily active users (DAU) of the live streaming app Twitch after the coronavirus outbreak in Norway from March 1 to June 1, 2020: <a href="https://www.statista.com/statistics/1121980/daily-active-users-of-the-twitch-app-after-the-coronavirus-outbreak-in-norway/" class="uri">https://www.statista.com/statistics/1121980/daily-active-users-of-the-twitch-app-after-the-coronavirus-outbreak-in-norway/</a></p>
+<p>Number of daily active users (DAU) of the iOS Fortnite app after the coronavirus outbreak in Norway from March 1 to June 1, 2020: <a href="https://www.statista.com/statistics/1121978/daily-active-users-of-the-fortnite-app-during-the-coronavirus-outbreak-in-norway/" class="uri">https://www.statista.com/statistics/1121978/daily-active-users-of-the-fortnite-app-during-the-coronavirus-outbreak-in-norway/</a></p>
+<p>Number of daily active users (DAU) of the iOS Minecraft app during the coronavirus outbreak in Norway from March 1 to June 1, 2020: <a href="https://www.statista.com/statistics/1121981/daily-active-users-of-the-minecraft-app-during-the-coronavirus-outbreak-in-norway/" class="uri">https://www.statista.com/statistics/1121981/daily-active-users-of-the-minecraft-app-during-the-coronavirus-outbreak-in-norway/</a></p>
+</div>
+<div id="merging-of-datasets" class="section level2">
+<h2>Merging of Datasets</h2>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.0.4     ✓ dplyr   1.0.2
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(readxl)
+
+New_Covid_Cases &lt;-  read_excel(&quot;New Covid Cases.xlsx&quot;, sheet = &quot;Data&quot;, col_names = FALSE, col_types = c(&quot;text&quot;, &quot;numeric&quot;))</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2</code></pre>
+<pre class="r"><code>NewCases &lt;- New_Covid_Cases %&gt;% slice(-c(1, 2, 3)) %&gt;% rename(&quot;Date&quot; = ...1, &quot;Number of New COVID Cases&quot; = ...2)
+
+Cumulative_Cases &lt;- Cumulative_Cases &lt;- read_excel(&quot;Cumulative Cases.xlsx&quot;, sheet = &quot;Data&quot;, col_names = FALSE, col_types = c(&quot;text&quot;, &quot;numeric&quot;))</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2</code></pre>
+<pre class="r"><code>CumulCases &lt;- Cumulative_Cases %&gt;% slice(-c(1, 2, 3)) %&gt;% rename(&quot;Date&quot; = ...1, &quot;Number of Cumulative COVID Cases&quot; = ...2)
+
+DAU_Fortnite &lt;- DAU_Fortnite &lt;- read_excel(&quot;DAU Fortnite.xlsx&quot;, sheet = &quot;Data&quot;, col_names = FALSE, col_types = c(&quot;text&quot;, &quot;numeric&quot;))</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2</code></pre>
+<pre class="r"><code>DAU.Fortnite &lt;- DAU_Fortnite %&gt;% slice(-c(1, 2, 3)) %&gt;% rename(&quot;Date&quot; = ...1, &quot;Daily Active Users on iOS Fortnite app&quot; = ...2)
+
+DAU_Twitch &lt;- DAU_Twitch &lt;- read_excel(&quot;DAU Twitch.xlsx&quot;, sheet = &quot;Data&quot;, col_names = FALSE, col_types = c(&quot;text&quot;, &quot;numeric&quot;, &quot;numeric&quot;))</code></pre>
+<pre><code>## Warning in read_fun(path = enc2native(normalizePath(path)), sheet_i = sheet, :
+## Expecting numeric in C5 / R5C3: got &#39;iOS*&#39;</code></pre>
+<pre><code>## Warning in read_fun(path = enc2native(normalizePath(path)), sheet_i = sheet, :
+## Expecting numeric in D5 / R5C4: got &#39;Google Play&#39;</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
+<pre class="r"><code>DAU.Twitch &lt;- DAU_Twitch %&gt;% slice(-c(1, 2, 3)) %&gt;% rename(&quot;Date&quot; = ...1, &quot;Daily Active Users on iOS Twitch app&quot; = ...2, &quot;Daily Active Users on Google Play Twitch app&quot; = ...3)
+
+DAU_Minecraft &lt;- DAU_Minecraft &lt;- read_excel(&quot;DAU Minecraft.xlsx&quot;, sheet = &quot;Data&quot;, col_names = FALSE, col_types = c(&quot;text&quot;, &quot;numeric&quot;))</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2</code></pre>
+<pre class="r"><code>DAU.Minecraft &lt;- DAU_Minecraft %&gt;% slice(-c(1, 2, 3)) %&gt;% rename(&quot;Date&quot; = ...1, &quot;Daily Active Users on iOS Minecraft app&quot; = ...2)
+
+
+partial.data1 &lt;- NewCases %&gt;% full_join(CumulCases)</code></pre>
+<pre><code>## Joining, by = &quot;Date&quot;</code></pre>
+<pre class="r"><code>partial.data1.2 &lt;- partial.data1 %&gt;% slice(-c(103:400))
+partial.data1.3 &lt;- partial.data1.2 %&gt;% mutate(Date = sub(&quot;, 2020&quot;, &quot;&quot;, Date)) %&gt;% mutate(Date=str_replace(Date, &quot;01&quot;, &quot;1&quot;), Date=str_replace(Date, &quot;02&quot;, &quot;2&quot;), Date=str_replace(Date, &quot;03&quot;, &quot;3&quot;), Date=str_replace(Date, &quot;04&quot;, &quot;4&quot;), Date=str_replace(Date, &quot;05&quot;, &quot;5&quot;), Date=str_replace(Date, &quot;06&quot;, &quot;6&quot;), Date=str_replace(Date, &quot;07&quot;, &quot;7&quot;), Date=str_replace(Date, &quot;08&quot;, &quot;8&quot;), Date=str_replace(Date, &quot;09&quot;, &quot;9&quot;))
+partial.data2 &lt;- DAU.Fortnite %&gt;% full_join(DAU.Minecraft) %&gt;% full_join(DAU.Twitch)</code></pre>
+<pre><code>## Joining, by = &quot;Date&quot;</code></pre>
+<pre><code>## Joining, by = &quot;Date&quot;</code></pre>
+<pre class="r"><code>fulldata &lt;- partial.data1.3 %&gt;% full_join(partial.data2) %&gt;% na.omit() </code></pre>
+<pre><code>## Joining, by = &quot;Date&quot;</code></pre>
+<pre class="r"><code>fulldata$Date &lt;- as.Date(fulldata$Date, format=&quot;%b %d&quot;) 
+library(&quot;lubridate&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<pre class="r"><code>fulldata$Date &lt;- fulldata$Date %m-% years(1) 
+
+head(fulldata)</code></pre>
+<pre><code>## # A tibble: 6 x 7
+##   Date       `Number of New … `Number of Cumu… `Daily Active U… `Daily Active U…
+##   &lt;date&gt;                &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1 2020-03-01               10               31            25286            22172
+## 2 2020-03-02               12               43            24832            22166
+## 3 2020-03-03               31               74            22928            22070
+## 4 2020-03-04               33              107            23609            22036
+## 5 2020-03-05               33              140            24141            21945
+## 6 2020-03-06               24              164            24183            22112
+## # … with 2 more variables: `Daily Active Users on iOS Twitch app` &lt;dbl&gt;, `Daily
+## #   Active Users on Google Play Twitch app` &lt;dbl&gt;</code></pre>
+<p>All of the datasets were downloaded as Excel sheets, and each contained two tabs; one as an overview of the information and the actual data. I first uploaded them and imported the data sheets, then I trimmed the first few rows since they served as headers in the Excel, as well as renaming the columns appropriately. Since all the datasets contain one column for date and one column for numerical data (with the exception of the Twitch data which included two columns for iOS and Google Play), I had decided the joining variable would be the date. I used a <code>full_join</code> first with the COVID case related datasets to join by <code>Date</code> since the format of their <code>Date</code> was the same (<code>partial.data1</code>). I then <code>slice</code>d rows 103 to 400 because it was dates passed June 1, 2020, which was the limiting dates of the DAU datasets (<code>partial.data1.2</code>). I then continued to edit the joined COVID cases dataset (<code>partial.data1.3</code>) and <code>mutate</code>d to replace the year with a blank (removing it) and renaming the single digit days without a zero, so it would match the date format of the DAU datasets. I used another <code>full_join</code> to join the Fortnite, Mincraft and Twitch DAU datasets by <code>Date</code> and called it <code>partial.data2</code>. I then used <code>full_join</code> to join <code>partial.data1.3</code> and <code>partial.data2</code> by <code>Date</code> and omitted all NAs so that the range of of <code>Date</code> would be from March 1 to June 1, 2020, and I named it <code>fulldata</code>. I wanted to convert the <code>Date</code> from a charcater class to a date class to make the visuals of plotting neater. I used <code>as.Date(format())</code> on the <code>Date</code> column to convert it to the class date, and with <code>library("lubridate")</code>, subtract one year from the column since the conversion resorted to including the current year. The dropping of the dates from before March 1, 2020 and after June 1, 2020 was due to the fact that the DAU datasets did not cover those dates. I lose out on a more expansive dataset that encompasses the beginning to most recent times in Norway, but it couldn’t be helped since there would be no use for the dates that didn’t have any DAU data. At the very least, the dthere are no missing days between March 1 and June 1, 2020 in the fully merged dataset.</p>
+</div>
+<div id="untidying-and-retidying-of-dataset" class="section level2">
+<h2>Untidying and Retidying of Dataset</h2>
+<pre class="r"><code>library(tidyverse)
+fulldata.untidy &lt;- fulldata %&gt;% pivot_longer(contains(&quot;Twitch&quot;), names_to = &quot;Twitch Source&quot;, values_to = &quot;Daily Active Users on Twitch App&quot;) %&gt;% pivot_longer(contains(&quot;COVID&quot;), names_to = &quot;New or Cumulative Cases&quot;, values_to = &quot;COVID Cases&quot;)
+fulldata.retidy &lt;- fulldata.untidy  %&gt;% pivot_wider(names_from = &quot;New or Cumulative Cases&quot;, values_from = &quot;COVID Cases&quot;) %&gt;% pivot_wider(names_from = &quot;Twitch Source&quot;, values_from = &quot;Daily Active Users on Twitch App&quot;)
+
+head(fulldata)</code></pre>
+<pre><code>## # A tibble: 6 x 7
+##   Date       `Number of New … `Number of Cumu… `Daily Active U… `Daily Active U…
+##   &lt;date&gt;                &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1 2020-03-01               10               31            25286            22172
+## 2 2020-03-02               12               43            24832            22166
+## 3 2020-03-03               31               74            22928            22070
+## 4 2020-03-04               33              107            23609            22036
+## 5 2020-03-05               33              140            24141            21945
+## 6 2020-03-06               24              164            24183            22112
+## # … with 2 more variables: `Daily Active Users on iOS Twitch app` &lt;dbl&gt;, `Daily
+## #   Active Users on Google Play Twitch app` &lt;dbl&gt;</code></pre>
+<p>Since my data came in really tidy, I used this space here to demonstrate <code>pivot_longer</code> and <code>pivot_wider</code>. To make <code>fulldata</code> untidy, denoted as <code>fulldata.untidy</code>, I <code>pivot_longer</code> the two columns for the Twitch app and created a column for the <code>Twitch Source</code>, either iOS or Google Play, and then the values were put into a column called <code>Daily Active Users on Twitch App</code>. Then I piped another <code>pivot_longer</code> the two columns containing the COVID cases, new and cumulative, and created a column called <code>New or Cumulative Cases</code> and a column for the values were called <code>COVID Cases</code>. To retidy <code>fulldata.untidy</code>, I used <code>pivot_wider</code> to recreate the columns <code>Number of New COVID Cases</code> and <code>Number of Cumulative COVID Cases</code> and returned their values from <code>COVID Cases</code>. Then, I piped another <code>pivot_wider</code> to create the columns <code>Daily Active Users on iOS Twitch app</code> and <code>Daily Active Users on Google Play Twitch App</code> from <code>Twitch Source</code>, and reinstated their values from <code>Daily Active Users on Twitch App</code>.</p>
+</div>
+<div id="wrangling" class="section level2">
+<h2>Wrangling</h2>
+<pre class="r"><code>library(tidyverse)
+fulldata %&gt;% summarize(max(`Number of New COVID Cases`), min(`Number of New COVID Cases`))</code></pre>
+<pre><code>## # A tibble: 1 x 2
+##   `max(\`Number of New COVID Cases\`)` `min(\`Number of New COVID Cases\`)`
+##                                  &lt;dbl&gt;                                &lt;dbl&gt;
+## 1                                  313                                    0</code></pre>
+<pre class="r"><code>summary.fulldata &lt;- fulldata %&gt;% mutate(Infection_intensity = case_when(`Number of New COVID Cases`&gt;208 ~ &quot;high&quot;, `Number of New COVID Cases`&lt;=208 &amp; 104&lt;=`Number of New COVID Cases` ~ &quot;med&quot;, `Number of New COVID Cases`&lt;104 ~ &quot;low&quot;))
+head(summary.fulldata)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##   Date       `Number of New … `Number of Cumu… `Daily Active U… `Daily Active U…
+##   &lt;date&gt;                &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1 2020-03-01               10               31            25286            22172
+## 2 2020-03-02               12               43            24832            22166
+## 3 2020-03-03               31               74            22928            22070
+## 4 2020-03-04               33              107            23609            22036
+## 5 2020-03-05               33              140            24141            21945
+## 6 2020-03-06               24              164            24183            22112
+## # … with 3 more variables: `Daily Active Users on iOS Twitch app` &lt;dbl&gt;, `Daily
+## #   Active Users on Google Play Twitch app` &lt;dbl&gt;, Infection_intensity &lt;chr&gt;</code></pre>
+<pre class="r"><code>summary.fulldata %&gt;% group_by(Date) %&gt;% arrange(desc(`Number of New COVID Cases`)) %&gt;% select(Infection_intensity, everything()) %&gt;% filter(Infection_intensity==&quot;high&quot;)</code></pre>
+<pre><code>## # A tibble: 11 x 8
+## # Groups:   Date [11]
+##    Infection_inten… Date       `Number of New … `Number of Cumu…
+##    &lt;chr&gt;            &lt;date&gt;                &lt;dbl&gt;            &lt;dbl&gt;
+##  1 high             2020-03-24              313             3511
+##  2 high             2020-03-20              308             2580
+##  3 high             2020-03-26              297             4100
+##  4 high             2020-03-23              296             3198
+##  5 high             2020-03-25              292             3803
+##  6 high             2020-03-30              264             4898
+##  7 high             2020-03-27              262             4362
+##  8 high             2020-03-09              247              496
+##  9 high             2020-03-10              241              737
+## 10 high             2020-03-19              239             2272
+## 11 high             2020-03-18              213             2033
+## # … with 4 more variables: `Daily Active Users on iOS Fortnite app` &lt;dbl&gt;,
+## #   `Daily Active Users on iOS Minecraft app` &lt;dbl&gt;, `Daily Active Users on iOS
+## #   Twitch app` &lt;dbl&gt;, `Daily Active Users on Google Play Twitch app` &lt;dbl&gt;</code></pre>
+<p>Here, I wanted to create a statistics table which showed the days when the highest amount of COVID cases was reported. I first found the maximum and minimum of new COVID cases to later create a new categorical variable. I created a dataset called <code>summary.fulldata</code> to use in Wrangling. For <code>summary.fulldata</code>, I first created a categorical variable by mutating a new column called <code>Infection_intensity</code> using <code>case_when()</code> and breaking down the range of <code>Number of New COVID Cases</code> to create a dichotomy of high (cases greater than 208), medium (cases between 208 and 104) and low (cases below 104). I decided to do this since the rate at which new COVID cases are reported are likely also correlated to the spread of COVID. I then created a table by first grouping by the <code>Date</code>, then arranging the <code>Number of New Covid Cases</code> in descending order to have the highest count most visible at the top, then I selected for <code>Infection_intensity</code> to appear at the front of the table, then filtered for <code>high</code> for <code>Infection_intensity</code> so that I was only looking at the highest amount of COVID cases. The results were interesting as it seems that all of the observations for high infection intensity all happened in March!</p>
+<pre class="r"><code>library(tidyverse)
+
+summary.fulldata %&gt;% group_by(Infection_intensity, Date) %&gt;% summarize(max(`Number of New COVID Cases`), min(`Number of New COVID Cases`), mean(`Number of New COVID Cases`), sd(`Number of New COVID Cases`), median(`Number of New COVID Cases`))</code></pre>
+<pre><code>## `summarise()` regrouping output by &#39;Infection_intensity&#39; (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 93 x 7
+## # Groups:   Infection_intensity [3]
+##    Infection_inten… Date       `max(\`Number o… `min(\`Number o…
+##    &lt;chr&gt;            &lt;date&gt;                &lt;dbl&gt;            &lt;dbl&gt;
+##  1 high             2020-03-09              247              247
+##  2 high             2020-03-10              241              241
+##  3 high             2020-03-18              213              213
+##  4 high             2020-03-19              239              239
+##  5 high             2020-03-20              308              308
+##  6 high             2020-03-23              296              296
+##  7 high             2020-03-24              313              313
+##  8 high             2020-03-25              292              292
+##  9 high             2020-03-26              297              297
+## 10 high             2020-03-27              262              262
+## # … with 83 more rows, and 3 more variables: `mean(\`Number of New COVID
+## #   Cases\`)` &lt;dbl&gt;, `sd(\`Number of New COVID Cases\`)` &lt;dbl&gt;,
+## #   `median(\`Number of New COVID Cases\`)` &lt;dbl&gt;</code></pre>
+<pre class="r"><code>summary.fulldata %&gt;% group_by(Infection_intensity) %&gt;% summarize(n(), max(`Number of New COVID Cases`), min(`Number of New COVID Cases`), mean(`Number of New COVID Cases`), sd(`Number of New COVID Cases`), median(`Number of New COVID Cases`))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 3 x 7
+##   Infection_inten… `n()` `max(\`Number o… `min(\`Number o… `mean(\`Number …
+##   &lt;chr&gt;            &lt;int&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1 high                11              313              213            270. 
+## 2 low                 63              103                0             38.9
+## 3 med                 19              208              106            157. 
+## # … with 2 more variables: `sd(\`Number of New COVID Cases\`)` &lt;dbl&gt;,
+## #   `median(\`Number of New COVID Cases\`)` &lt;dbl&gt;</code></pre>
+<pre class="r"><code>summary.fulldata %&gt;% group_by(Infection_intensity) %&gt;% summarize(n(), max(`Number of Cumulative COVID Cases`), min(`Number of Cumulative COVID Cases`), mean(`Number of Cumulative COVID Cases`), sd(`Number of Cumulative COVID Cases`), median(`Number of Cumulative COVID Cases`))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 3 x 7
+##   Infection_inten… `n()` `max(\`Number o… `min(\`Number o… `mean(\`Number …
+##   &lt;chr&gt;            &lt;int&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1 high                11             4898              496            2908.
+## 2 low                 63             8436               31            6589.
+## 3 med                 19             7077              912            4309.
+## # … with 2 more variables: `sd(\`Number of Cumulative COVID Cases\`)` &lt;dbl&gt;,
+## #   `median(\`Number of Cumulative COVID Cases\`)` &lt;dbl&gt;</code></pre>
+<pre class="r"><code>summary.fulldata %&gt;% summarize(max(`Daily Active Users on iOS Fortnite app`), min(`Daily Active Users on iOS Fortnite app`), mean(`Daily Active Users on iOS Fortnite app`), sd(`Daily Active Users on iOS Fortnite app`), median(`Daily Active Users on iOS Fortnite app`))</code></pre>
+<pre><code>## # A tibble: 1 x 5
+##   `max(\`Daily Ac… `min(\`Daily Ac… `mean(\`Daily A… `sd(\`Daily Act…
+##              &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1            53780            21231           38193.           11664.
+## # … with 1 more variable: `median(\`Daily Active Users on iOS Fortnite
+## #   app\`)` &lt;dbl&gt;</code></pre>
+<pre class="r"><code>summary.fulldata %&gt;% summarize(max(`Daily Active Users on iOS Minecraft app`), min(`Daily Active Users on iOS Minecraft app`), mean(`Daily Active Users on iOS Minecraft app`), sd(`Daily Active Users on iOS Minecraft app`), median(`Daily Active Users on iOS Minecraft app`))</code></pre>
+<pre><code>## # A tibble: 1 x 5
+##   `max(\`Daily Ac… `min(\`Daily Ac… `mean(\`Daily A… `sd(\`Daily Act…
+##              &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1            54877            21858           34268.           10602.
+## # … with 1 more variable: `median(\`Daily Active Users on iOS Minecraft
+## #   app\`)` &lt;dbl&gt;</code></pre>
+<pre class="r"><code>summary.fulldata %&gt;% summarize(max(`Daily Active Users on iOS Twitch app`), min(`Daily Active Users on iOS Twitch app`), mean(`Daily Active Users on iOS Twitch app`), sd(`Daily Active Users on iOS Twitch app`), median(`Daily Active Users on iOS Twitch app`))</code></pre>
+<pre><code>## # A tibble: 1 x 5
+##   `max(\`Daily Ac… `min(\`Daily Ac… `mean(\`Daily A… `sd(\`Daily Act…
+##              &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1            48136             9190           24243.           14023.
+## # … with 1 more variable: `median(\`Daily Active Users on iOS Twitch
+## #   app\`)` &lt;dbl&gt;</code></pre>
+<pre class="r"><code>summary.fulldata %&gt;% summarize(max(`Daily Active Users on Google Play Twitch app`), min(`Daily Active Users on Google Play Twitch app`), mean(`Daily Active Users on Google Play Twitch app`), sd(`Daily Active Users on Google Play Twitch app`), median(`Daily Active Users on Google Play Twitch app`))</code></pre>
+<pre><code>## # A tibble: 1 x 5
+##   `max(\`Daily Ac… `min(\`Daily Ac… `mean(\`Daily A… `sd(\`Daily Act…
+##              &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1             1547              705            1077.             252.
+## # … with 1 more variable: `median(\`Daily Active Users on Google Play Twitch
+## #   app\`)` &lt;dbl&gt;</code></pre>
+<pre class="r"><code>corsummary.fulldata &lt;- summary.fulldata %&gt;% select_if(is.numeric) %&gt;% cor(use=&quot;pair&quot;)</code></pre>
+<p>I used <code>summary.fulldata</code> and piped <code>summarize()</code> to find the maximum, minimum, mean, standard deviation, and median of all of my numerical variables. For <code>Number of New COVID Cases</code>, I also grouped by <code>Infection_intensity</code> and <code>Date</code> as well as included <code>n()</code> for count, and for <code>Number of Cumulative COVID Cases</code>, I grouped by <code>Infection_intensity</code>. Lastly, I correlation on all the numeric variables for visualization later.
+There was a total of 11 high infection intensity days, 19 medium infection intensity days, and 63 low infection intensity days, which is interesting to me to see that the majority of the days had low new COVID cases, which ultimately is a good thing.</p>
+</div>
+<div id="visualization" class="section level2">
+<h2>Visualization</h2>
+<pre class="r"><code>library(tidyverse)
+
+corfulldata &lt;- fulldata %&gt;% select_if(is.numeric) %&gt;% cor(use=&quot;pair&quot;)
+tidycorfulldata &lt;- corfulldata %&gt;% as.data.frame %&gt;% rownames_to_column(&quot;var1&quot;) %&gt;%  pivot_longer(-1,names_to=&quot;var2&quot;,values_to=&quot;correlation&quot;)
+tidycorfulldata %&gt;% ggplot(aes(var1,var2,fill=correlation))+  geom_tile()+  scale_fill_gradient2(low=&quot;#FCF4C9&quot;,mid=&quot;#FBCDF2&quot;,high=&quot;#ABBFFF&quot;)+ geom_text(aes(label=round(correlation,2)),color = &quot;black&quot;, size = 4)+ theme(axis.text.x = element_text(angle = 90, hjust=1)) + xlab(&quot;&quot;)+ylab(&quot;&quot;)</code></pre>
+<p><img src="../../project/project1_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>For the heatmap, it can be clearly seen that there is a negative correlation with the <code>Number of New COVID Cases</code> and every other variable! That looks promising since my thoughts were that the more people were stuck at home, the more they used apps to spend their time. There are some strong positive correlations among the different mobile apps.</p>
+<pre class="r"><code>otherdata &lt;- fulldata %&gt;% pivot_longer(contains(&quot;Daily&quot;), names_to=&quot;Media App&quot;, values_to=&quot;Daily Active Users&quot;) %&gt;% mutate(`Media App`=str_replace(`Media App`, &quot;Daily Active Users on &quot;, &quot;&quot;))
+head(otherdata)</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   Date       `Number of New CO… `Number of Cumula… `Media App`  `Daily Active U…
+##   &lt;date&gt;                  &lt;dbl&gt;              &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt;
+## 1 2020-03-01                 10                 31 iOS Fortnit…            25286
+## 2 2020-03-01                 10                 31 iOS Minecra…            22172
+## 3 2020-03-01                 10                 31 iOS Twitch …             9255
+## 4 2020-03-01                 10                 31 Google Play…              859
+## 5 2020-03-02                 12                 43 iOS Fortnit…            24832
+## 6 2020-03-02                 12                 43 iOS Minecra…            22166</code></pre>
+<pre class="r"><code># plot1
+
+otherdata %&gt;% ggplot(aes(x=Date, y=`Daily Active Users`, fill=`Media App`)) + stat_summary(fun=mean, geom = &quot;bar&quot;) + facet_wrap(~`Media App`) + scale_fill_manual(values=c(&quot;#92ccdd&quot;, &quot;#c7eff0&quot;, &quot;#fdc4ec&quot;, &quot;#ffc2cb&quot;)) + scale_y_continuous(breaks = seq(0,60000,5000))</code></pre>
+<p><img src="../../project/project1_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>otherdata %&gt;% ggplot(aes(x=Date, y=`Number of New COVID Cases`)) + geom_line() + geom_smooth()</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="../../project/project1_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<p>Here, I created a new dataset called <code>otherdata</code> to use for further visualizing the data. I created it by using <code>pivot_longer</code> to create a categorical variable called <code>Media App</code> which contained all of the mobile apps with their values called <code>Daily Active Users</code>. To make it easier to read, I mutated the values in <code>Media App</code> to replace “Daily Active Users on” with a black so all that would be left would be the app name (i.e. iOS Minecraft app, iOS Fortnite app).
+I created a <code>ggplot</code> faceted to show the DAU of the different media apps over time.You can see that the Google Play Twitch app had a small user base, but it still looks like it has a rising trend. The other 3 apps had a huge increase over April and May. Fortnit stayed in that higher range while Minecraft and iOS Twitch decreased after May.
+I’ve also included a <code>geom_line</code> plot showing the <code>Number of New COVID Cases</code> over time, along with a regression line. And its interesting to see the the new cases started to decrease in late April, which loosely lines up with the increase in DAU in the moble apps.</p>
+<pre class="r"><code># plot2
+
+ggplot(data=otherdata, aes(`Number of New COVID Cases`,`Daily Active Users`)) + geom_point(aes(color=`Media App`)) + geom_smooth(aes(color=`Media App`)) + scale_y_continuous(breaks = seq(0,60000,5000))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="../../project/project1_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+Here, I created a scatterplot of the different media apps by their DAU as the number of new COVID and fitted regression lines on top. It’s easier to see the trend of having high DAU is related to low numbers of new cases, and as the cases increase, the DAU if the apps decreased.</p>
+</div>
+<div id="dimensionality-reduction" class="section level2">
+<h2>Dimensionality Reduction</h2>
+<pre class="r"><code>library(tidyverse)
+library(cluster)
+library(plotly)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<pre class="r"><code>clust_fulldata&lt;-fulldata %&gt;% select(-Date)
+
+sil_width&lt;-vector()
+for(i in 2:10){
+  pam_fit &lt;- pam(clust_fulldata, k = i)    
+  sil_width[i] &lt;- pam_fit$silinfo$avg.width  }
+ggplot()+geom_line(aes(x=1:10,y=sil_width))+scale_x_continuous(name=&quot;k&quot;,breaks=1:10)</code></pre>
+<pre><code>## Warning: Removed 1 row(s) containing missing values (geom_path).</code></pre>
+<p><img src="../../project/project1_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>pam2 &lt;-clust_fulldata %&gt;% scale %&gt;% pam(3)
+pamclust &lt;- clust_fulldata%&gt;%mutate(cluster=as.factor(pam2$clustering))
+pamclust %&gt;% ggplot(aes(`Number of New COVID Cases`,`Daily Active Users on iOS Fortnite app`, color=cluster)) + geom_point()</code></pre>
+<p><img src="../../project/project1_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<pre class="r"><code>pamclust%&gt;%plot_ly(x= ~`Number of New COVID Cases`,  y = ~`Daily Active Users on iOS Minecraft app`, z = ~`Daily Active Users on iOS Fortnite app`, color= ~cluster, type = &quot;scatter3d&quot;, mode = &quot;markers&quot;)</code></pre>
+<pre><code>## Warning: `arrange_()` is deprecated as of dplyr 0.7.0.
+## Please use `arrange()` instead.
+## See vignette(&#39;programming&#39;) for more help
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"953f65f0dacf":["function () ","plotlyVisDat"]},"cur_data":"953f65f0dacf","attrs":{"953f65f0dacf":{"x":{},"y":{},"z":{},"mode":"markers","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"`Number of New COVID Cases`"},"yaxis":{"title":"`Daily Active Users on iOS Minecraft app`"},"zaxis":{"title":"`Daily Active Users on iOS Fortnite app`"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[10,12,31,33,33,24,20,65,247,241,175,206,147,100,99,180,176,213,239,308,174,148,296,313,292,297,262,166,106,264,208,198,198,164,88,72,159,140,106,103],"y":[22172,22166,22070,22036,21945,22112,22222,22474,22160,22022,21858,22748,23237,23419,23368,23847,24193,24516,25003,25493,25905,26566,26773,27767,28166,27315,28380,27743,27274,27501,26356,27406,27265,27876,28194,28563,28667,31349,32886,34966],"z":[25286,24832,22928,23609,24141,24183,25754,24982,22910,22049,22266,21231,22073,22737,23494,21460,22620,23622,24155,23940,25094,25597,24889,24925,24339,24840,25858,28685,28258,27372,27429,26846,27168,27882,29666,30670,30707,32170,32930,34541],"mode":"markers","type":"scatter3d","name":"1","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"frame":null},{"x":[68,109,41,11,12,23,19,19,23,21,13,3,17,20,19,14,26,6,6,18,12,18,16,16,0,6,7],"y":[36442,38364,42160,40604,38787,36583,35175,33982,33759,31982,31201,30796,30236,30093,29168,29462,29905,28959,29835,29705,30078,30172,30186,29616,30012,29896,29599],"z":[35620,37000,52410,51053,51293,50782,50337,50441,50349,49990,50023,47552,49456,50609,50772,51617,52518,53780,52022,50431,50061,50735,50386,49922,50680,52028,51415],"mode":"markers","type":"scatter3d","name":"2","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"line":{"color":"rgba(252,141,98,1)"},"frame":null},{"x":[76,77,122,103,80,108,49,36,84,78,77,69,53,25,37,71,50,39,39,43,23,44,45,43,39,29],"y":[40029,41528,43633,43876,45892,47219,46708,49027,50173,50549,53275,53415,53668,54207,54248,54877,54676,54308,54568,54284,51722,48788,47749,46719,45355,43717],"z":[38103,38176,39741,40333,41106,42025,42893,43401,42775,43294,43976,43211,43347,44700,46547,46903,46585,48739,47747,47505,50011,51458,50841,52175,52274,52640],"mode":"markers","type":"scatter3d","name":"3","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>library(GGally)</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
+##   method from   
+##   +.gg   ggplot2</code></pre>
+<pre class="r"><code>ggpairs(pamclust, columns=1:6, aes(color=cluster))</code></pre>
+<p><img src="../../project/project1_files/figure-html/unnamed-chunk-9-4.png" width="672" /></p>
+<pre class="r"><code>plot(pam2, which=2)</code></pre>
+<p><img src="../../project/project1_files/figure-html/unnamed-chunk-9-5.png" width="672" /></p>
+<p>I first created my cluster data by selecting all my variable from <code>fulldata</code> except for <code>Date</code>. Then I ran it through the first section of <code>sil_width</code> code and plotted a <code>geom_line</code> to find the best number of clusters, which was 3. Then I used the <code>pam()</code> function to form the clusters and saved it as a new column using <code>mutate</code> and created my PAM cluster data as <code>pamclust</code>. I piped <code>pamclust</code> into a <code>geom_point</code> plot using <code>Number of New COVID Cases</code> and <code>Daily Active Users in iOS Fortnite app</code> to see a 2D version of the clustered data. There you can see the distinct red, green and blue groups. By using the <code>plot_ly</code> function with the following variables; x= ~<code>Number of New COVID Cases</code>, y = ~<code>Daily Active Users on iOS Minecraft app</code>, z = ~<code>Daily Active Users on iOS Fortnite app</code>, it’s easier to see the actual 3D shape, which looks like a snake, and can see the 3 different sections that make up the clusters. I then used the <code>ggpairs</code> function to see the correlation of the clusters. It looks like for <code>Number of New COVID Cases</code>, the red cluster dominated the the lower values of the other variables but the higher values in new cases. Other trends that are visualized is the for at least half of them, the red cluster is usually on the far left, blue in the middle, and green to the right. The blue cluster takes up a lot of the area in most graphs. Lastly, I used ‘plot(pam2, which=2)’ to create a silhouette plot. It displays that cluster 1 has reasonable structure while 2 and 3 are considered weak and could be artificial.</p>
+</div>
+
+            
+        <hr>         <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+              </div> 
+            </div>
+          </div>
+
+   <hr>  <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = '';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div> 
+        </div>
+      </div>
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../js/docs.min.js"></script>
+<script src="../../js/main.js"></script>
+
+<script src="../../js/ie10-viewport-bug-workaround.js"></script>
+
+
+    
+  </body>
+</html>

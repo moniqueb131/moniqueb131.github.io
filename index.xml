@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monique Bactad</title>
+    <link>/</link>
+    <description>Recent content on Monique Bactad</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 08 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test Post</title>
+      <link>/post/2021/05/08/test-post/</link>
+      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/05/08/test-post/</guid>
+      <description> Boop the snoot
+Link to project 1
+Link to google
+#wheee </description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/post/2015/07/23/hello-r-markdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/post/2015/07/23/hello-r-markdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title>Project 1: Exploratory Data Analysis (SDS348)</title>
+      <link>/project/project1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/project1/</guid>
+      <description>knitr::opts_chunk$set(echo = TRUE, eval = TRUE, fig.align = &amp;quot;center&amp;quot;, warning = F, message = F, tidy=TRUE, tidy.opts=list(width.cutoff=60), R.options=list(max.print=100)) Introduction For my project, I initially wanted to see what kind of effect COVID-19, particularly the lockdowns, had affected people’s everyday lives and activities. The datasets I chose were posted on www.statista.com and they’re all based in Norway. The COVID cases, new and cumulative, were both published by Connor Stewart, a researcher who focuses on health and pharmaceuticals in Europe, and the data was sourced from Folkehelseinstituttet (FHI), the Institute of Public Health in Norway.</description>
+    </item>
+    
+    <item>
+      <title>Project 2: Modeling, Testing, and Predicting (SDS348) | It&#39;s ya boi, Norway again</title>
+      <link>/project/project2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/project2/</guid>
+      <description>knitr::opts_chunk$set(echo = TRUE, eval = TRUE, fig.align = &amp;quot;center&amp;quot;, warning = F, message = F, tidy = TRUE, tidy.opts = list(width.cutoff = 60), R.options = list(max.print = 100)) Introduction In this project, Norway, once again, shall be the focus. Here, I’ve retrieved 3 online data sets: Power Consumption, Coronavirus Pandemic Country Profile, and Mobility. The Power Consumption data set recorded hourly power consumption in megawatts (MW) for 15 European countries, and was uploaded by François Raucent on www.</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/</guid>
+      <description> Check out some of my coding projects below:
+ Wrangling &amp;amp; Exploratory Data Analysis
+ Modeling, Inference, Prediction
+  -- </description>
+    </item>
+    
+    <item>
+      <title>Resume</title>
+      <link>/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resume/</guid>
+      <description>    </description>
+    </item>
+    
+  </channel>
+</rss>

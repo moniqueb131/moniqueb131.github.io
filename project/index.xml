@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Monique Bactad</title>
+    <link>/project/</link>
+    <description>Recent content in Projects on Monique Bactad</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project 1: Exploratory Data Analysis (SDS348)</title>
+      <link>/project/project1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/project1/</guid>
+      <description>knitr::opts_chunk$set(echo = TRUE, eval = TRUE, fig.align = &amp;quot;center&amp;quot;, warning = F, message = F, tidy=TRUE, tidy.opts=list(width.cutoff=60), R.options=list(max.print=100)) Introduction For my project, I initially wanted to see what kind of effect COVID-19, particularly the lockdowns, had affected people’s everyday lives and activities. The datasets I chose were posted on www.statista.com and they’re all based in Norway. The COVID cases, new and cumulative, were both published by Connor Stewart, a researcher who focuses on health and pharmaceuticals in Europe, and the data was sourced from Folkehelseinstituttet (FHI), the Institute of Public Health in Norway.</description>
+    </item>
+    
+    <item>
+      <title>Project 2: Modeling, Testing, and Predicting (SDS348) | It&#39;s ya boi, Norway again</title>
+      <link>/project/project2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/project2/</guid>
+      <description>knitr::opts_chunk$set(echo = TRUE, eval = TRUE, fig.align = &amp;quot;center&amp;quot;, warning = F, message = F, tidy = TRUE, tidy.opts = list(width.cutoff = 60), R.options = list(max.print = 100)) Introduction In this project, Norway, once again, shall be the focus. Here, I’ve retrieved 3 online data sets: Power Consumption, Coronavirus Pandemic Country Profile, and Mobility. The Power Consumption data set recorded hourly power consumption in megawatts (MW) for 15 European countries, and was uploaded by François Raucent on www.</description>
+    </item>
+    
+  </channel>
+</rss>
