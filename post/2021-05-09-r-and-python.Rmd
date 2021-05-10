@@ -1,18 +1,18 @@
 ---
-title: R and Python
-author: Monique Bactad
+title: "R and Python"
+author: "Monique Bactad"
 date: '2021-05-09'
 slug: r-and-python
 categories:
-  - blog
-  - coding
+- blog
+- coding
 tags:
-  - R
-  - Python
-description: 'How R and Python "talk" to each other'
+- R
+- Python
+description: How R and Python "talk" to each other
 ---
 
-![Python and R generic](/post/2021-05-09-r-and-python_files/Python and R.png){width=80% height=80%}
+![](/post/2021-05-09-r-and-python_files/Python and R.png){width=80% height=80%}
 
 Here's just some code I took from Worksheet 21:
 
@@ -44,37 +44,41 @@ ggplot()+geom_point(aes(py$x,py$y))
 ```
 
 
-![Speech](/post/2021-05-09-r-and-python_files/speech.png){width=80% height=80%}
+![Conversation](/post/2021-05-09-r-and-python_files/speech.png){width=80% height=80%}
 
-Here's an actual conversation between Python and R I devised (I'm not very good with graphs):
+Here's some Python code saving various variables for my made up persoanlity of a character, "Python":
 
 ```{python}
-a = "Greetings R, how are you?"
-b = "I am fine this lovely day! Say, where are you off to?"
-c = "Oh dear! Monique, you say? How strange, I am also on my way to meet with her as well! And she asked ME to help her with her project..."
-d = "How rude! I'll have you know, Monique said I was a vital part for her project! What do you bring to the table?"
-e = "Backbone you say? Well don't be fooled, you are just TEMPORARY! One day, Monique shall replace you with more functional and sophisticated code, such as I. It's probably why she invited us both!"
+Python1 = "Greetings R, how are you?"
+Python2 = "I am fine this lovely day! Say, where are you off to?"
+Python3 = "Oh dear! Monique, you say? How strange, I am also on my way to meet with her as well! And she asked ME to help her with her project..."
+Python4 = "How rude! I'll have you know, Monique said I was a vital part for her project! What do you bring to the table?"
+Python5 = "Backbone you say? Well don't be fooled, you are just TEMPORARY! One day, Monique shall replace you with more functional and sophisticated code, such as I. It's probably why she invited us both!"
 ```
+
+Here's some R code saving various variables for my made up persoanlity of a character, "R":
 
 ```{R}
-a <-"Hello Python, I'm doing swell. And you?"
-b <-"Well you see, a student by the name of Monique has enlisted me to help her with her project!"
-c <- "Perposterous! Surely you must be mistaken, for it is I who will be helping Monique. There's no need for you."
-d <- "HA! Don't make me laugh; vital? I daresay you need not come becasue you are but a speck amongst her code. In contrast, I am the very back bone of her project!"
-e <- "DON'T be ridiculous! Monque, replace me?? Absurd! We'll have to hear what she has to say!"
+R1 <-"Hello Python, I'm doing swell. And you?"
+R2 <-"Well you see, a student by the name of Monique has enlisted me to help her with her project!"
+R3 <- "Perposterous! Surely you must be mistaken, for it is I who will be helping Monique. There's no need for you."
+R4 <- "HA! Don't make me laugh; vital? I daresay you need not come becasue you are but a speck amongst her code. In contrast, I am the very back bone of her project!"
+R5 <- "DON'T be ridiculous! Monque, replace me?? Absurd! We'll have to hear what she has to say!"
 ```
+
+Here's the resulting conversation between Python and R, all outputted in a Python chunk:
 
 ```{python}
-a
-r.a
-b
-r.b
-c
-r.c
-d
-r.d
-e
-r.e
+Python1
+r.R1
+Python2
+r.R2
+Python3
+r.R3
+Python4
+r.R4
+Python5
+r.R5
 ```
 
-NGL, as long as I finish this project fine, I don't really care haha
+Monique: NGL, as long as I finish this project fine, I don't really care haha "¯\_( ͡° ͜ʖ ͡°)_/¯"
